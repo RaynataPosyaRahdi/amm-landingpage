@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TemuTrip</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">TemuTrip</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#promo">Promo</a>
+    <a href="#destinasi">Destinasi</a>
+    <a href="#payment">Payment</a>
+    <a href="#review">Review</a>
+    <a href="#booking">Booking</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="dark-toggle" type="button" onclick="toggleDarkMode()">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <a href="#booking" class="nav-btn">Get Started</a>
+
+    <button class="hamburger" type="button" onclick="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+  <button class="sidebar-close" type="button" onclick="toggleSidebar()">&times;</button>
+
+  <a href="#home" onclick="toggleSidebar()">Home</a>
+  <a href="#promo" onclick="toggleSidebar()">Promo</a>
+  <a href="#destinasi" onclick="toggleSidebar()">Destinasi</a>
+  <a href="#payment" onclick="toggleSidebar()">Payment</a>
+  <a href="#review" onclick="toggleSidebar()">Review</a>
+  <a href="#booking" onclick="toggleSidebar()">Booking</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+    <p class="tag">OPEN TRIP INDONESIA</p>
+
+    <h1>Explore Beautiful <br> Indonesia With Us</h1>
+
+    <p class="hero-desc">
+      Open trip premium ke Banda Neira, Labuan Bajo, Kepulauan Seribu,
+      Raja Ampat, Bromo, Derawan, Sumba dan Belitung bersama TemuTrip.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#destinasi" class="primary-btn">Explore Trip</a>
+      <a href="#promo" class="secondary-btn">View Promo</a>
+    </div>
+
+    <div class="hero-review">
+      <div class="review-slider">
+
+        <div class="review-slide active">
+          <img src="naufal.jpeg" alt="Naufal">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>“Trip ke Banda Neira terbaik banget.”</p>
+            <span>Naufal • Banda Neira</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <img src="alexa.jpeg" alt="Alexa">
+          <div>
+            <div class="review-stars">★★★★☆</div>
+            <p>“Dokumentasinya aesthetic parah.”</p>
+            <span>Alexa • Labuan Bajo</span>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <img src="ghina.jpeg" alt="Ghina">
+          <div>
+            <div class="review-stars">★★★★☆</div>
+            <p>“Worth it banget buat healing.”</p>
+            <span>Ghina • Kepulauan Seribu</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-box">
+      <h3>30%</h3>
+      <p>New User Discount</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>20K+</h3>
+      <p>Happy Travelers</p>
+    </div>
+  </div>
+</section>
+
+<section class="promo-section" id="promo">
+  <div class="section-title reveal">
+    <p>PROMO SPESIAL</p>
+    <h2>Voucher Traveler Baru</h2>
+  </div>
+
+  <div class="promo-grid">
+    <div class="promo-card reveal">
+      <h3>Diskon 15%</h3>
+      <p>Valid untuk booking pertama.</p>
+      <div class="promo-code">TEMUTRIP15</div>
+      <button type="button" onclick="copyPromo('TEMUTRIP15')">Copy</button>
+    </div>
+
+    <div class="promo-card reveal">
+      <h3>Gratis Travel Kit</h3>
+      <p>Baju trip, tas travel dan stiker.</p>
+      <div class="promo-code">FREEKIT</div>
+      <button type="button" onclick="copyPromo('FREEKIT')">Copy</button>
+    </div>
+
+    <div class="promo-card reveal">
+      <h3>Cashback Rp300K</h3>
+      <p>Khusus paket Raja Ampat.</p>
+      <div class="promo-code">CASHBACK300</div>
+      <button type="button" onclick="copyPromo('CASHBACK300')">Copy</button>
+    </div>
+  </div>
+</section>
+
+<section class="destination" id="destinasi">
+  <div class="section-title reveal">
+    <p>POPULAR DESTINATION</p>
+    <h2>Destinasi Favorit Traveler</h2>
+  </div>
+
+  <div class="filter-box reveal">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Cari destinasi..." onkeyup="filterDestinations()">
+    </div>
+
+    <div class="date-filter">
+      <i class="fa-solid fa-calendar-days"></i>
+      <select id="dateFilter" onchange="filterDestinations()">
+        <option value="all">Semua Tanggal Trip</option>
+        <option value="juni">Juni 2026</option>
+        <option value="juli">Juli 2026</option>
+        <option value="agustus">Agustus 2026</option>
+        <option value="september">September 2026</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="destination-grid" id="destinationGrid"></div>
+</section>
+
+<section class="payment-section" id="payment">
+  <div class="section-title reveal">
+    <p>PAYMENT METHOD</p>
+    <h2>Pembayaran Aman & Mudah</h2>
+  </div>
+
+  <div class="payment-wrapper reveal">
+    <div class="payment-left">
+      <h3>Ringkasan Pembayaran</h3>
+
+      <div class="payment-summary">
+        <div>
+          <span>Paket Trip</span>
+          <strong id="paymentTrip">Pilih destinasi dulu</strong>
+        </div>
+
+        <div>
+          <span>Tanggal Trip</span>
+          <strong id="paymentDate">Belum dipilih</strong>
+        </div>
+
+        <div>
+          <span>Jumlah Peserta</span>
+          <strong id="paymentGuest">1 Orang</strong>
+        </div>
+
+        <div>
+          <span>Diskon Promo</span>
+          <strong id="paymentDiscount">Rp 0</strong>
+        </div>
+
+        <div>
+          <span>Total Harga</span>
+          <strong id="paymentTotal">Rp 0</strong>
+        </div>
+
+        <div>
+          <span>Metode Pembayaran</span>
+          <strong id="paymentMethodText">Virtual Account</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-right">
+      <h3>Metode Pembayaran</h3>
+
+      <div class="payment-methods">
+        <label class="payment-option">
+          <input type="radio" name="payment" value="Virtual Account" checked onchange="syncPaymentFromRadio(this.value)">
+          <span><i class="fa-solid fa-building-columns"></i> Virtual Account</span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="E-Wallet" onchange="syncPaymentFromRadio(this.value)">
+          <span><i class="fa-solid fa-wallet"></i> E-Wallet</span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="Kartu Debit / Kredit" onchange="syncPaymentFromRadio(this.value)">
+          <span><i class="fa-solid fa-credit-card"></i> Kartu Debit / Kredit</span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="Transfer Bank" onchange="syncPaymentFromRadio(this.value)">
+          <span><i class="fa-solid fa-money-bill-transfer"></i> Transfer Bank</span>
+        </label>
+      </div>
+
+      <button class="pay-btn" type="button" onclick="payNow()">Bayar Sekarang</button>
+    </div>
+  </div>
+</section>
+
+<section class="review-section" id="review">
+  <div class="section-title reveal">
+    <p>TRAVELER REVIEW</p>
+    <h2>Experience Bersama TemuTrip</h2>
+  </div>
+
+  <div class="review-grid">
+    <div class="review-card reveal">
+      <img class="profile" src="naufal.jpeg" alt="Naufal">
+      <h3>Naufal</h3>
+      <span>Banda Neira</span>
+      <div class="stars">★★★★★</div>
+      <p>“Trip terbaik yang pernah aku ikut. Resort nyaman dan view luar biasa.”</p>
+    </div>
+
+    <div class="review-card reveal">
+      <img class="profile" src="jessica.jpeg" alt="Jessica">
+      <h3>Jessica</h3>
+      <span>Labuan Bajo</span>
+      <div class="stars">★★★★★</div>
+      <p>“Dokumentasi aesthetic banget dan semuanya sudah include.”</p>
+    </div>
+
+    <div class="review-card reveal">
+      <img class="profile" src="alexa.jpeg" alt="Alexa">
+      <h3>Alexa</h3>
+      <span>Kepulauan Seribu</span>
+      <div class="stars">★★★★☆</div>
+      <p>“Worth it banget buat healing dan short escape.”</p>
+    </div>
+
+    <div class="review-card reveal">
+      <img class="profile" src="nirbi.jpeg"/53.jp alt="Nirbi">
+      <h3>Nirbi</h3>
+      <span>Raja Ampat</span>
+      <div class="stars">★★★★☆</div>
+      <p>“Tempatnya indah banget, itinerary jelas, dan tim TemuTrip sangat membantu.”</p>
+    </div>
+
+    <div class="review-card reveal">
+      <img class="profile" src="ghina.jpeg" alt="Ghina">
+      <h3>Ghina</h3>
+      <span>Sumba</span>
+      <div class="stars">★★★★☆</div>
+      <p>“Suka banget sama pelayanannya. Booking gampang dan trip-nya super rapi.”</p>
+    </div>
+
+    <div class="review-card reveal">
+      <img class="profile" src="thanis.jpeg" alt="Thanis">
+      <h3>Thanis</h3>
+      <span>Belitung</span>
+      <div class="stars">★★★★★</div>
+      <p>“Trip-nya rapi, payment gampang, dan destinasi Belitung benar-benar cantik.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="section-title reveal">
+    <p>BOOK YOUR TRIP</p>
+    <h2>Form Pendaftaran & Payment</h2>
+  </div>
+
+  <form class="booking-form reveal">
+    <input type="text" placeholder="Nama Lengkap">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="Nomor WhatsApp">
+
+    <select id="destinationSelect" onchange="updatePaymentUI()">
+      <option>Pilih Destinasi</option>
+    </select>
+
+    <input type="date" id="tripDateInput" onchange="updatePaymentUI()">
+    <input type="number" id="guestInput" placeholder="Jumlah Peserta" min="1" value="1" oninput="updatePaymentUI()">
+
+    <select id="paymentSelect" onchange="syncPaymentFromSelect()">
+      <option>Metode Pembayaran</option>
+      <option>Transfer Bank</option>
+      <option>E-Wallet</option>
+      <option>Virtual Account</option>
+      <option>Kartu Debit / Kredit</option>
+    </select>
+
+    <input type="text" id="promoInput" placeholder="Kode Promo" oninput="updatePaymentUI()">
+    <textarea rows="5" placeholder="Catatan tambahan"></textarea>
+
+    <button class="submit-btn" type="button" onclick="checkoutTrip()">Checkout Sekarang</button>
+  </form>
+</section>
+
+<footer>
+  <h2>TemuTrip</h2>
+  <p>Open Trip Indonesia dengan pengalaman traveling terbaik.</p>
+</footer>
+
+<a href="https://wa.me/6289518288595" target="_blank" class="whatsapp-float">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <button class="close" type="button" onclick="closePopup()">&times;</button>
+
+    <img class="popup-img" id="popupImg" src="" alt="Destination">
+
+    <div class="popup-body">
+      <span class="trip-label" id="popupLabel"></span>
+      <h2 id="popupTitle"></h2>
+      <p class="trip-day" id="popupDay"></p>
+      <h3 id="popupPrice"></h3>
+
+      <p class="popup-desc" id="popupDesc"></p>
+
+      <div class="popup-info" id="popupInfo"></div>
+
+      <a href="#" target="_blank" id="mapsBtn" class="maps-btn">
+        <i class="fa-solid fa-location-dot"></i>
+        View on Google Maps
+      </a>
+
+      <a href="#booking" onclick="bookNow()" class="select-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="success-modal" id="successModal">
+  <div class="success-box">
+    <div class="success-icon">
+      <i class="fa-solid fa-check"></i>
+    </div>
+
+    <h2 id="successTitle">Payment Successful!</h2>
+
+    <p id="successText">
+      Bayar berhasil. Enjoy the trip! Informasi selanjutnya akan kami hubungi melalui WhatsApp atau email.
+    </p>
+
+    <button onclick="closeSuccessModal()">Done</button>
+  </div>
+</div>
+
+<script>
+const destinations = [
+  {
+    id:"banda",
+    name:"Banda Neira",
+    type:"Historic Island • Maluku",
+    location:"Banda Islands",
+    rating:"4.9",
+    reviews:"2.4k",
+    priceNumber:2850000,
+    price:"Rp 2.850.000",
+    short:"Rp2.850K",
+    day:"3 Hari 2 Malam",
+    month:"juni",
+    label:"Open Trip Premium",
+    maps:"https://www.google.com/maps/search/?api=1&query=Banda+Neira",
+    image:"bandaneira.jpg",
+    description:"Banda Neira adalah destinasi bersejarah di Maluku yang terkenal dengan laut biru jernih, peninggalan kolonial, pulau kecil yang tenang, dan spot snorkeling indah.",
+    include:["Transportasi PP","Resort Premium","Makan 3x Sehari","Travel Kit & Jersey","Dokumentasi Drone"]
+  },
+  {
+    id:"bajo",
+    name:"Labuan Bajo",
+    type:"Island Hopping • NTT",
+    location:"Komodo",
+    rating:"4.8",
+    reviews:"3.1k",
+    priceNumber:4500000,
+    price:"Rp 4.500.000",
+    short:"Rp4.500K",
+    day:"4 Hari 3 Malam",
+    month:"juli",
+    label:"Open Trip Sailing",
+    maps:"https://www.google.com/maps/search/?api=1&query=Labuan+Bajo",
+    image:"labuanbajo.jpg",
+    description:"Labuan Bajo menawarkan pengalaman island hopping, sailing trip, pantai eksotis, bukit dengan panorama laut, dan kawasan Komodo yang ikonik.",
+    include:["Transportasi Lokal PP","Kapal Wisata","Resort / Cabin","Makan Selama Trip","Dokumentasi Drone"]
+  },
+  {
+    id:"seribu",
+    name:"Kepulauan Seribu",
+    type:"Beach Paradise • Jakarta",
+    location:"Pulau Pramuka",
+    rating:"4.7",
+    reviews:"1.8k",
+    priceNumber:1450000,
+    price:"Rp 1.450.000",
+    short:"Rp1.450K",
+    day:"2 Hari 1 Malam",
+    month:"juni",
+    label:"Short Escape",
+    maps:"https://www.google.com/maps/search/?api=1&query=Kepulauan+Seribu",
+    image:"kepulauanseribu.jpg",
+    description:"Kepulauan Seribu cocok untuk short escape dari kota dengan pantai santai, air laut jernih, snorkeling ringan, dan penginapan tepi pantai.",
+    include:["Boat Trip","Penginapan Tepi Pantai","Makan 3x Sehari","Snorkeling","Travel Kit"]
+  },
+  {
+    id:"raja",
+    name:"Raja Ampat",
+    type:"Marine Paradise • Papua",
+    location:"Misool",
+    rating:"5.0",
+    reviews:"4.2k",
+    priceNumber:7850000,
+    price:"Rp 7.850.000",
+    short:"Rp7.850K",
+    day:"5 Hari 4 Malam",
+    month:"agustus",
+    label:"Luxury Marine Trip",
+    maps:"https://www.google.com/maps/search/?api=1&query=Raja+Ampat",
+    image:"rajaampat.jpg",
+    description:"Raja Ampat dikenal sebagai surga bawah laut dengan gugusan pulau karst, air laut turquoise, snorkeling kelas dunia, dan resort ocean view.",
+    include:["Airport Transfer PP","Ocean View Resort","Full Meal","Snorkeling","Dokumentasi Underwater"]
+  },
+  {
+    id:"bromo",
+    name:"Bromo",
+    type:"Mountain Trip • East Java",
+    location:"Probolinggo",
+    rating:"4.8",
+    reviews:"2.9k",
+    priceNumber:2250000,
+    price:"Rp 2.250.000",
+    short:"Rp2.250K",
+    day:"3 Hari 2 Malam",
+    month:"juli",
+    label:"Mountain Escape",
+    maps:"https://www.google.com/maps/search/?api=1&query=Gunung+Bromo",
+    image:"bromo.jpg",
+    description:"Bromo menghadirkan pengalaman sunrise dramatis, pasir luas, udara sejuk, dan jeep tour yang cocok untuk traveler pecinta alam.",
+    include:["Jeep Sunrise Tour","Hotel Nyaman","Makan Sesuai Itinerary","Tiket Wisata","Dokumentasi Trip"]
+  },
+  {
+    id:"derawan",
+    name:"Pulau Derawan",
+    type:"Tropical Island • Kalimantan",
+    location:"Berau",
+    rating:"4.9",
+    reviews:"2.1k",
+    priceNumber:5450000,
+    price:"Rp 5.450.000",
+    short:"Rp5.450K",
+    day:"4 Hari 3 Malam",
+    month:"agustus",
+    label:"Tropical Island Trip",
+    maps:"https://www.google.com/maps/search/?api=1&query=Pulau+Derawan",
+    image:"pulauderawan.jpg",
+    description:"Pulau Derawan menawarkan suasana tropis tenang, laut jernih, island hopping, snorkeling, dan pengalaman melihat biota laut khas Kalimantan.",
+    include:["Boat Trip","Resort Pulau","Makan Selama Trip","Explore Penyu","Travel Kit Eksklusif"]
+  },
+  {
+    id:"sumba",
+    name:"Sumba",
+    type:"Savanna Escape • NTT",
+    location:"Waikabubak",
+    rating:"4.9",
+    reviews:"2.6k",
+    priceNumber:3950000,
+    price:"Rp 3.950.000",
+    short:"Rp3.950K",
+    day:"4 Hari 3 Malam",
+    month:"september",
+    label:"Nature Cultural Trip",
+    maps:"https://www.google.com/maps/search/?api=1&query=Sumba",
+    image:"sumba.jpg",
+    description:"Sumba memiliki perpaduan pantai, bukit savana, air terjun, dan budaya lokal yang kuat untuk traveler yang menyukai alam luas.",
+    include:["Transportasi Private","Hotel / Villa","Makan Selama Trip","Explore Pantai & Savana","Dokumentasi"]
+  },
+  {
+    id:"belitung",
+    name:"Belitung",
+    type:"Granite Beach • Bangka Belitung",
+    location:"Tanjung Tinggi",
+    rating:"4.8",
+    reviews:"1.9k",
+    priceNumber:2750000,
+    price:"Rp 2.750.000",
+    short:"Rp2.750K",
+    day:"3 Hari 2 Malam",
+    month:"september",
+    label:"Island Leisure Trip",
+    maps:"https://www.google.com/maps/search/?api=1&query=Belitung",
+    image:"belitung.jpg",
+    description:"Belitung terkenal dengan pantai pasir putih, batu granit besar yang ikonik, laut tenang, dan island hopping santai.",
+    include:["Transportasi Lokal","Hotel Nyaman","Makan 3x Sehari","Island Hopping","Dokumentasi"]
+  }
+];
+
+const grid = document.getElementById("destinationGrid");
+const select = document.getElementById("destinationSelect");
+
+destinations.forEach(item => {
+  select.innerHTML += `<option>${item.name}</option>`;
+});
+
+function renderDestinations(data){
+  grid.innerHTML = "";
+
+  if(data.length === 0){
+    grid.innerHTML = `<p class="empty-result">Destinasi tidak ditemukan.</p>`;
+    return;
+  }
+
+  data.forEach(item => {
+    grid.innerHTML += `
+      <div class="card reveal show" onclick="openPopup('${item.id}')">
+        <div class="card-image">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="price-tag">starts at ${item.short}</div>
+        </div>
+
+        <div class="card-overlay">
+          <h3>${item.name}</h3>
+          <p class="card-type">${item.type}</p>
+
+          <div class="card-bottom">
+            <div class="location"><i class="fa-solid fa-location-dot"></i> ${item.location}</div>
+            <div class="rating"><i class="fa-solid fa-star"></i> ${item.rating} <span>(${item.reviews})</span></div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+renderDestinations(destinations);
+
+function filterDestinations(){
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const month = document.getElementById("dateFilter").value;
+
+  const filtered = destinations.filter(item => {
+    const matchSearch =
+      item.name.toLowerCase().includes(keyword) ||
+      item.location.toLowerCase().includes(keyword) ||
+      item.type.toLowerCase().includes(keyword);
+
+    const matchDate = month === "all" || item.month === month;
+
+    return matchSearch && matchDate;
+  });
+
+  renderDestinations(filtered);
+}
+
+function openPopup(id){
+  const item = destinations.find(destination => destination.id === id);
+
+  document.getElementById("popupImg").src = item.image;
+  document.getElementById("popupLabel").innerText = item.label;
+  document.getElementById("popupTitle").innerText = item.name;
+  document.getElementById("popupDay").innerText = item.day;
+  document.getElementById("popupPrice").innerHTML = `${item.price}<span>/pax</span>`;
+  document.getElementById("popupDesc").innerText = item.description;
+  document.getElementById("mapsBtn").href = item.maps;
+
+  document.getElementById("popupInfo").innerHTML = `
+    <p><i class="fa-solid fa-briefcase"></i> ${item.include[0]}</p>
+    <p><i class="fa-solid fa-hotel"></i> ${item.include[1]}</p>
+    <p><i class="fa-solid fa-utensils"></i> ${item.include[2]}</p>
+    <p><i class="fa-solid fa-suitcase-rolling"></i> ${item.include[3]}</p>
+    <p><i class="fa-solid fa-camera"></i> ${item.include[4]}</p>
+  `;
+
+  select.value = item.name;
+  updatePaymentUI();
+
+  document.getElementById("popup").classList.add("show");
+  document.body.classList.add("no-scroll");
+}
+
+function closePopup(){
+  document.getElementById("popup").classList.remove("show");
+  document.body.classList.remove("no-scroll");
+}
+
+function bookNow(){
+  closePopup();
+  document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+
+function getPromoDiscount(total){
+  const promoCode = document.getElementById("promoInput").value.trim().toUpperCase();
+
+  if(promoCode === "TEMUTRIP15"){
+    return total * 0.15;
+  }
+
+  if(promoCode === "CASHBACK300"){
+    return 300000;
+  }
+
+  if(promoCode === "FREEKIT"){
+    return 150000;
+  }
+
+  return 0;
+}
+
+function updatePaymentUI(){
+  const selectedName = select.value;
+  const selectedTrip = destinations.find(item => item.name === selectedName);
+  const guest = Number(document.getElementById("guestInput").value) || 1;
+  const date = document.getElementById("tripDateInput").value;
+  const paymentValue = document.getElementById("paymentSelect").value;
+
+  if(selectedTrip){
+    const subtotal = selectedTrip.priceNumber * guest;
+    const discount = getPromoDiscount(subtotal);
+    const finalTotal = Math.max(subtotal - discount, 0);
+
+    document.getElementById("paymentTrip").innerText = selectedTrip.name;
+    document.getElementById("paymentDiscount").innerText = formatRupiah(discount);
+    document.getElementById("paymentTotal").innerText = formatRupiah(finalTotal);
+  }else{
+    document.getElementById("paymentTrip").innerText = "Pilih destinasi dulu";
+    document.getElementById("paymentDiscount").innerText = "Rp 0";
+    document.getElementById("paymentTotal").innerText = "Rp 0";
+  }
+
+  document.getElementById("paymentGuest").innerText = guest + " Orang";
+  document.getElementById("paymentDate").innerText = date || "Belum dipilih";
+  document.getElementById("paymentMethodText").innerText =
+    paymentValue === "Metode Pembayaran" ? "Virtual Account" : paymentValue;
+}
+
+function syncPaymentFromRadio(value){
+  document.getElementById("paymentSelect").value = value;
+  document.getElementById("paymentMethodText").innerText = value;
+}
+
+function syncPaymentFromSelect(){
+  const selectedPayment = document.getElementById("paymentSelect").value;
+  const paymentRadios = document.querySelectorAll('input[name="payment"]');
+
+  paymentRadios.forEach(radio => {
+    radio.checked = radio.value === selectedPayment;
+  });
+
+  document.getElementById("paymentMethodText").innerText =
+    selectedPayment === "Metode Pembayaran" ? "Virtual Account" : selectedPayment;
+}
+
+function formatRupiah(number){
+  return "Rp " + number.toLocaleString("id-ID");
+}
+
+function copyPromo(code){
+  navigator.clipboard.writeText(code);
+
+  const promoInput = document.getElementById("promoInput");
+
+  if(promoInput){
+    promoInput.value = code;
+  }
+
+  updatePaymentUI();
+
+  document.getElementById("successTitle").innerText = "Coupon Copied!";
+  document.getElementById("successText").innerText =
+    "Kode promo berhasil dicopy dan dimasukkan ke form booking. Diskon otomatis dipotong dari total pembayaran.";
+
+  document.querySelector(".success-icon").innerHTML =
+    '<i class="fa-solid fa-ticket"></i>';
+
+  document.getElementById("successModal").classList.add("show");
+}
+
+function checkoutTrip(){
+  updatePaymentUI();
+  syncPaymentFromSelect();
+  document.getElementById("payment").scrollIntoView({behavior:"smooth"});
+}
+
+function payNow(){
+  const method = document.getElementById("paymentMethodText").innerText;
+
+  document.getElementById("successTitle").innerText = "Payment Successful!";
+  document.getElementById("successText").innerText =
+    "Bayar berhasil menggunakan " + method + ". Enjoy the trip! Informasi selanjutnya akan kami hubungi melalui WhatsApp atau email.";
+
+  document.querySelector(".success-icon").innerHTML =
+    '<i class="fa-solid fa-check"></i>';
+
+  document.getElementById("successModal").classList.add("show");
+}
+
+function closeSuccessModal(){
+  document.getElementById("successModal").classList.remove("show");
+}
+
+function toggleDarkMode(){
+  document.body.classList.toggle("dark-mode");
+}
+
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+const slides = document.querySelectorAll(".review-slide");
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}, 2000);
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(item => {
+    const windowHeight = window.innerHeight;
+    const itemTop = item.getBoundingClientRect().top;
+
+    if(itemTop < windowHeight - 80){
+      item.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+document.getElementById("popup").addEventListener("click", function(e){
+  if(e.target.id === "popup"){
+    closePopup();
+  }
+});
+</script>
+
+</body>
+</html>
