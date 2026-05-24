@@ -1822,3 +1822,457 @@ body.dark-mode .voucher-code{
     font-size:12px;
   }
 }
+
+
+/* ================= MOBILE FRIENDLY FINAL FIX ================= */
+.review-controls{
+  display:none;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea,
+.payment-option,
+.pay-btn,
+.submit-btn{
+  font-family:'Poppins',sans-serif;
+  font-size:15px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  outline:none;
+  border:1px solid transparent;
+  transition:0.25s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+  border-color:rgba(27,160,226,0.55);
+  box-shadow:0 0 0 4px rgba(27,160,226,0.10);
+}
+
+.payment-left h3,
+.payment-right h3{
+  margin-bottom:22px;
+  font-size:22px;
+}
+
+.payment-summary strong{
+  color:#0f172a;
+}
+
+body.dark-mode .payment-summary strong{
+  color:#f8fafc;
+}
+
+@media(max-width:900px){
+  body{
+    overflow-x:hidden;
+  }
+
+  .hero::after{
+    background:linear-gradient(to bottom,rgba(0,0,0,0.40),rgba(0,0,0,0.42));
+  }
+
+  .payment-wrapper{
+    gap:22px;
+  }
+}
+
+@media(max-width:640px){
+  body{
+    font-size:14px;
+  }
+
+  section{
+    padding:58px 5%;
+  }
+
+  .navbar{
+    min-height:58px;
+    padding:10px 12px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .dark-toggle,
+  .hamburger{
+    width:35px;
+    height:35px;
+    font-size:14px;
+  }
+
+  .sidebar{
+    width:78%;
+    max-width:290px;
+    padding:74px 24px;
+  }
+
+  .hero{
+    min-height:100svh;
+    padding:100px 5% 46px;
+    align-items:flex-end;
+  }
+
+  .tag{
+    font-size:10.5px;
+    margin-bottom:12px;
+  }
+
+  .hero h1{
+    font-size:30px;
+    line-height:1.16;
+    margin-bottom:14px;
+  }
+
+  .hero-desc{
+    font-size:13px;
+    line-height:1.65;
+    margin-bottom:22px;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    padding:13px 18px;
+    font-size:13px;
+  }
+
+  .hero-buttons{
+    margin-bottom:24px;
+  }
+
+  .review-slider{
+    height:108px;
+  }
+
+  .review-slide{
+    padding:14px;
+    border-radius:18px;
+  }
+
+  .review-slide img{
+    width:44px;
+    height:44px;
+  }
+
+  .review-stars{
+    font-size:12px;
+  }
+
+  .review-slide p{
+    font-size:12px;
+    line-height:1.45;
+  }
+
+  .review-slide span{
+    font-size:11px;
+  }
+
+  .section-title{
+    margin-bottom:26px;
+  }
+
+  .section-title p{
+    font-size:11px;
+    letter-spacing:1.4px;
+  }
+
+  .section-title h2{
+    font-size:24px;
+    line-height:1.25;
+  }
+
+  .search-box,
+  .date-filter{
+    min-height:50px;
+    padding:13px 14px;
+    border-radius:16px;
+  }
+
+  .search-box input,
+  .date-filter select{
+    font-size:13px;
+  }
+
+  .voucher-card,
+  .card,
+  .payment-wrapper,
+  .booking-form,
+  .review-card{
+    border-radius:20px;
+  }
+
+  .voucher-image{
+    height:150px;
+  }
+
+  .voucher-desc p,
+  .voucher-bottom span{
+    font-size:12.5px;
+  }
+
+  .voucher-bottom h3{
+    font-size:28px;
+  }
+
+  .card{
+    height:285px;
+  }
+
+  .card-overlay{
+    padding:18px;
+  }
+
+  .card-overlay h3{
+    font-size:21px;
+  }
+
+  .card-type,
+  .location,
+  .rating{
+    font-size:12px;
+  }
+
+  .price-tag{
+    font-size:10.5px;
+    padding:7px 11px;
+  }
+
+  .payment-wrapper{
+    padding:18px;
+    background:linear-gradient(180deg,#eef7ff,#ffffff);
+    box-shadow:0 16px 38px rgba(15,23,42,0.08);
+  }
+
+  .payment-left,
+  .payment-right{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 10px 26px rgba(15,23,42,0.06);
+  }
+
+  .payment-left h3,
+  .payment-right h3{
+    font-size:17px;
+    margin-bottom:16px;
+  }
+
+  .payment-summary{
+    gap:10px;
+  }
+
+  .payment-summary div{
+    padding:12px 0;
+    flex-direction:row;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .payment-summary span{
+    font-size:12px;
+    flex:0 0 42%;
+  }
+
+  .payment-summary strong{
+    flex:1;
+    text-align:right;
+    font-size:12.5px;
+    line-height:1.45;
+    word-break:break-word;
+  }
+
+  .payment-methods{
+    gap:10px;
+  }
+
+  .payment-option{
+    min-height:52px;
+    padding:13px 14px;
+    border:1px solid #e0f2fe;
+    display:flex;
+    align-items:center;
+  }
+
+  .payment-option span{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:12.5px;
+    line-height:1.4;
+  }
+
+  .pay-btn{
+    margin-top:16px;
+    padding:14px;
+    font-size:13px;
+  }
+
+  .booking-form{
+    padding:18px;
+    gap:12px;
+    background:linear-gradient(180deg,#eef7ff,#ffffff);
+    box-shadow:0 16px 38px rgba(15,23,42,0.08);
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea{
+    width:100%;
+    min-height:50px;
+    padding:13px 14px;
+    border-radius:14px;
+    font-size:13px;
+    border:1px solid #e0f2fe;
+    box-shadow:0 8px 18px rgba(15,23,42,0.04);
+  }
+
+  .booking-form textarea{
+    min-height:116px;
+  }
+
+  .submit-btn{
+    padding:14px;
+    font-size:13px;
+    margin-top:4px;
+  }
+
+  .review-section{
+    overflow:hidden;
+  }
+
+  .review-section .section-title{
+    margin-bottom:22px;
+  }
+
+  .review-grid{
+    display:flex;
+    grid-template-columns:none;
+    gap:0;
+    transition:transform 0.35s ease;
+    will-change:transform;
+  }
+
+  .review-grid .review-card{
+    min-width:100%;
+    padding:24px 20px;
+    text-align:center;
+    transform:none !important;
+    opacity:1 !important;
+    box-shadow:0 16px 36px rgba(15,23,42,0.08);
+  }
+
+  .review-card .profile{
+    width:66px;
+    height:66px;
+    margin:0 auto 14px;
+  }
+
+  .review-card h3{
+    font-size:18px;
+  }
+
+  .review-card span,
+  .review-card p{
+    font-size:13px;
+  }
+
+  .review-card p{
+    line-height:1.65;
+  }
+
+  .review-controls{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:18px;
+  }
+
+  .review-controls button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#1ba0e2;
+    color:white;
+    font-size:20px;
+    font-weight:800;
+    box-shadow:0 12px 26px rgba(27,160,226,0.28);
+  }
+
+  .popup-body h2{
+    font-size:24px;
+  }
+
+  .popup-desc,
+  .popup-info p,
+  .maps-btn,
+  .select-btn{
+    font-size:13px;
+  }
+
+  .footer-column h3{
+    font-size:25px;
+  }
+
+  .footer-column h4{
+    font-size:17px;
+  }
+
+  .footer-column p,
+  .footer-column a,
+  .footer-bottom p{
+    font-size:13px;
+  }
+
+  body.dark-mode .payment-wrapper,
+  body.dark-mode .booking-form{
+    background:linear-gradient(180deg,#1e293b,#111827);
+  }
+
+  body.dark-mode .payment-left,
+  body.dark-mode .payment-right{
+    background:#0f172a;
+    box-shadow:0 14px 34px rgba(0,0,0,0.32);
+  }
+
+  body.dark-mode .payment-option,
+  body.dark-mode .booking-form input,
+  body.dark-mode .booking-form select,
+  body.dark-mode .booking-form textarea{
+    border-color:rgba(56,189,248,0.20);
+  }
+}
+
+@media(max-width:380px){
+  .hero h1{
+    font-size:27px;
+  }
+
+  .hero-desc{
+    font-size:12.5px;
+  }
+
+  .section-title h2{
+    font-size:22px;
+  }
+
+  .review-slider{
+    height:118px;
+  }
+
+  .payment-summary div{
+    flex-direction:column;
+  }
+
+  .payment-summary span,
+  .payment-summary strong{
+    flex:auto;
+    text-align:left;
+  }
+}

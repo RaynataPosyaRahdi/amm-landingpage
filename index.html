@@ -186,14 +186,14 @@
           <span>Cashback untuk trip premium</span>
         </div>
 
-        <button type="button" onclick="copyPromo('TEMUTRIP300')">
+        <button type="button" onclick="copyPromo('CASHBACK300')">
           Copy
         </button>
       </div>
 
       <div class="voucher-code">
         <i class="fa-regular fa-copy"></i>
-        TEMUTRIP300
+        CASHBACK300
       </div>
     </div>
 
@@ -354,6 +354,11 @@
       <div class="stars">★★★★★</div>
       <p>“Trip-nya rapi, payment gampang, dan destinasi Belitung benar-benar cantik.”</p>
     </div>
+  </div>
+
+  <div class="review-controls">
+    <button type="button" onclick="moveReview(-1)" aria-label="Review sebelumnya">&lt;</button>
+    <button type="button" onclick="moveReview(1)" aria-label="Review berikutnya">&gt;</button>
   </div>
 </section>
 
@@ -867,6 +872,36 @@ setInterval(() => {
   currentSlide = (currentSlide + 1) % slides.length;
   slides[currentSlide].classList.add("active");
 }, 2000);
+
+
+const mobileReviewGrid = document.querySelector(".review-grid");
+const mobileReviewCards = document.querySelectorAll(".review-grid .review-card");
+let activeReviewIndex = 0;
+
+function updateReviewSlider(){
+  if(!mobileReviewGrid || mobileReviewCards.length === 0){
+    return;
+  }
+
+  mobileReviewGrid.style.transform = `translateX(-${activeReviewIndex * 100}%)`;
+}
+
+function moveReview(direction){
+  activeReviewIndex += direction;
+
+  if(activeReviewIndex < 0){
+    activeReviewIndex = mobileReviewCards.length - 1;
+  }
+
+  if(activeReviewIndex >= mobileReviewCards.length){
+    activeReviewIndex = 0;
+  }
+
+  updateReviewSlider();
+}
+
+window.addEventListener("resize", updateReviewSlider);
+updateReviewSlider();
 
 const reveals = document.querySelectorAll(".reveal");
 
