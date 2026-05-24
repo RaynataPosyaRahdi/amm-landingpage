@@ -117,7 +117,10 @@
     <h2>Voucher Traveler Baru</h2>
   </div>
 
-  <div class="voucher-grid">
+  <div class="carousel-area voucher-area reveal">
+    <button class="carousel-btn left" type="button" onclick="moveVoucher(-1)" aria-label="Voucher sebelumnya">&lt;</button>
+    <div class="voucher-window">
+      <div class="voucher-grid">
 
     <div class="voucher-card reveal">
       <div class="voucher-image">
@@ -197,6 +200,9 @@
       </div>
     </div>
 
+      </div>
+    </div>
+    <button class="carousel-btn right" type="button" onclick="moveVoucher(1)" aria-label="Voucher berikutnya">&gt;</button>
   </div>
 </section>
 
@@ -306,7 +312,10 @@
     <h2>Experience Bersama TemuTrip</h2>
   </div>
 
-  <div class="review-grid">
+  <div class="carousel-area review-area reveal">
+    <button class="carousel-btn left" type="button" onclick="moveReview(-1)" aria-label="Review sebelumnya">&lt;</button>
+    <div class="review-window">
+      <div class="review-grid">
     <div class="review-card reveal">
       <img class="profile" src="naufal.jpeg" alt="Naufal">
       <h3>Naufal</h3>
@@ -354,11 +363,9 @@
       <div class="stars">★★★★★</div>
       <p>“Trip-nya rapi, payment gampang, dan destinasi Belitung benar-benar cantik.”</p>
     </div>
-  </div>
-
-  <div class="review-controls">
-    <button type="button" onclick="moveReview(-1)" aria-label="Review sebelumnya">&lt;</button>
-    <button type="button" onclick="moveReview(1)" aria-label="Review berikutnya">&gt;</button>
+      </div>
+    </div>
+    <button class="carousel-btn right" type="button" onclick="moveReview(1)" aria-label="Review berikutnya">&gt;</button>
   </div>
 </section>
 
@@ -393,6 +400,55 @@
 
     <button class="submit-btn" type="button" onclick="checkoutTrip()">Checkout Sekarang</button>
   </form>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="section-title reveal faq-title">
+    <p>TRUSTED BY TRAVELER</p>
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-wrapper reveal">
+    <div class="faq-item active">
+      <button class="faq-question" type="button" onclick="toggleFaq(this)">
+        <span>Bagaimana cara booking trip di TemuTrip?</span>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="faq-answer">
+        Kamu bisa pilih destinasi, isi form booking, masukkan kode promo jika ada, lalu lanjut ke bagian pembayaran.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button" onclick="toggleFaq(this)">
+        <span>Apa saja yang termasuk dalam paket trip?</span>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        Setiap paket umumnya sudah termasuk transportasi lokal, penginapan, itinerary, dokumentasi, dan beberapa fasilitas sesuai destinasi.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button" onclick="toggleFaq(this)">
+        <span>Apakah pembayaran bisa menggunakan e-wallet?</span>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        Bisa. TemuTrip menyediakan pilihan Virtual Account, Transfer Bank, E-Wallet, serta Kartu Debit / Kredit.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button" onclick="toggleFaq(this)">
+        <span>Bagaimana jika saya membatalkan trip?</span>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        Pembatalan mengikuti ketentuan masing-masing paket. Silakan hubungi admin TemuTrip untuk pengecekan jadwal dan kebijakan refund.
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="footer-temutrip">
@@ -874,34 +930,54 @@ setInterval(() => {
 }, 2000);
 
 
-const mobileReviewGrid = document.querySelector(".review-grid");
-const mobileReviewCards = document.querySelectorAll(".review-grid .review-card");
+const reviewGridSlider = document.querySelector(".review-grid");
+const reviewCardsSlider = document.querySelectorAll(".review-grid .review-card");
 let activeReviewIndex = 0;
 
 function updateReviewSlider(){
-  if(!mobileReviewGrid || mobileReviewCards.length === 0){
-    return;
-  }
-
-  mobileReviewGrid.style.transform = `translateX(-${activeReviewIndex * 100}%)`;
+  if(!reviewGridSlider || reviewCardsSlider.length === 0) return;
+  reviewGridSlider.style.transform = `translateX(-${activeReviewIndex * 100}%)`;
 }
 
 function moveReview(direction){
-  activeReviewIndex += direction;
-
-  if(activeReviewIndex < 0){
-    activeReviewIndex = mobileReviewCards.length - 1;
-  }
-
-  if(activeReviewIndex >= mobileReviewCards.length){
-    activeReviewIndex = 0;
-  }
-
+  activeReviewIndex = (activeReviewIndex + direction + reviewCardsSlider.length) % reviewCardsSlider.length;
   updateReviewSlider();
 }
 
-window.addEventListener("resize", updateReviewSlider);
+const voucherGridSlider = document.querySelector(".voucher-grid");
+const voucherCardsSlider = document.querySelectorAll(".voucher-grid .voucher-card");
+let activeVoucherIndex = 0;
+
+function updateVoucherSlider(){
+  if(!voucherGridSlider || voucherCardsSlider.length === 0) return;
+  voucherGridSlider.style.transform = `translateX(-${activeVoucherIndex * 100}%)`;
+}
+
+function moveVoucher(direction){
+  activeVoucherIndex = (activeVoucherIndex + direction + voucherCardsSlider.length) % voucherCardsSlider.length;
+  updateVoucherSlider();
+}
+
+setInterval(() => moveReview(1), 4500);
+setInterval(() => moveVoucher(1), 4200);
+window.addEventListener("resize", () => { updateReviewSlider(); updateVoucherSlider(); });
 updateReviewSlider();
+updateVoucherSlider();
+
+function toggleFaq(button){
+  const item = button.closest(".faq-item");
+  const allItems = document.querySelectorAll(".faq-item");
+
+  allItems.forEach(faq => {
+    if(faq !== item){
+      faq.classList.remove("active");
+      faq.querySelector("i").className = "fa-solid fa-plus";
+    }
+  });
+
+  item.classList.toggle("active");
+  button.querySelector("i").className = item.classList.contains("active") ? "fa-solid fa-xmark" : "fa-solid fa-plus";
+}
 
 const reveals = document.querySelectorAll(".reveal");
 
