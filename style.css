@@ -927,3 +927,262 @@ body.dark-mode .success-box p{
   }
 
 }
+
+/* ================= FOOTER ================= */
+
+.footer-temutrip{
+  position:relative;
+  background:url('bandaneira.jpg');
+  background-size:cover;
+  background-position:center;
+  padding:120px 8% 40px;
+  overflow:hidden;
+}
+
+.footer-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(2,6,23,0.96),
+    rgba(2,6,23,0.62)
+  );
+}
+
+.footer-content{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr 1fr;
+  gap:50px;
+  text-align:left;
+}
+
+.footer-column h3{
+  color:white;
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+.footer-column h4{
+  color:white;
+  font-size:20px;
+  margin-bottom:24px;
+}
+
+.footer-column p{
+  color:rgba(255,255,255,0.78);
+  line-height:1.9;
+  margin-bottom:10px;
+}
+
+.footer-column a{
+  display:block;
+  color:rgba(255,255,255,0.78);
+  margin-bottom:14px;
+  transition:0.3s;
+}
+
+.footer-column a:hover{
+  color:#38bdf8;
+  transform:translateX(4px);
+}
+
+.footer-social{
+  display:flex;
+  gap:14px;
+  margin-top:28px;
+}
+
+.footer-social a{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.24);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:18px;
+}
+
+.footer-social a:hover{
+  background:#1ba0e2;
+  border-color:#1ba0e2;
+}
+
+.footer-payment{
+  display:flex;
+  gap:16px;
+  margin-top:22px;
+}
+
+.footer-payment i{
+  color:white;
+  font-size:34px;
+}
+
+.footer-bottom{
+  position:relative;
+  z-index:2;
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  text-align:center;
+}
+
+.footer-bottom p{
+  color:rgba(255,255,255,0.7);
+  font-size:14px;
+}
+
+@media(max-width:900px){
+
+  .footer-content{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-temutrip{
+    padding:90px 8% 40px;
+  }
+}
+
+/* ================= VOUCHER STYLE ================= */
+
+.voucher-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+.voucher-card{
+  position:relative;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(15,23,42,0.10);
+  transition:0.35s ease;
+}
+
+.voucher-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 60px rgba(15,23,42,0.14);
+}
+
+.voucher-card::before,
+.voucher-card::after{
+  content:'';
+  position:absolute;
+  top:57%;
+  width:34px;
+  height:34px;
+  background:#f0efef;
+  border-radius:50%;
+  z-index:4;
+}
+
+.voucher-card::before{
+  left:-17px;
+}
+
+.voucher-card::after{
+  right:-17px;
+}
+
+.voucher-image{
+  height:190px;
+  background:#dff5ff;
+  overflow:hidden;
+}
+
+.voucher-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.voucher-desc{
+  padding:24px 28px;
+  text-align:center;
+  border-bottom:1px dashed #4294ff;
+}
+
+.voucher-desc p{
+  color:#0f172a;
+  font-size:15px;
+  line-height:1.7;
+}
+
+.voucher-bottom{
+  padding:24px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+
+.voucher-bottom h3{
+  font-size:38px;
+  color:#0f172a;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.voucher-bottom span{
+  font-size:13px;
+  color:#64748b;
+}
+
+.voucher-bottom button{
+  border:none;
+  background:#1ba0e2;
+  color:white;
+  padding:14px 24px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.voucher-bottom button:hover{
+  background:#007ce0;
+}
+
+.voucher-code{
+  margin:0 28px 28px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:#eef7ff;
+  color:#1ba0e2;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  letter-spacing:1px;
+}
+
+body.dark-mode .voucher-card{
+  background:#1e293b;
+}
+
+body.dark-mode .voucher-desc p,
+body.dark-mode .voucher-bottom h3{
+  color:white;
+}
+
+body.dark-mode .voucher-bottom span{
+  color:#cbd5e1;
+}
+
+body.dark-mode .voucher-code{
+  background:#0f172a;
+  color:#38bdf8;
+}
+
+body.dark-mode .voucher-card::before,
+body.dark-mode .voucher-card::after{
+  background:#0f172a;
+}

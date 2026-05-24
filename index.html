@@ -117,27 +117,86 @@
     <h2>Voucher Traveler Baru</h2>
   </div>
 
-  <div class="promo-grid">
-    <div class="promo-card reveal">
-      <h3>Diskon 15%</h3>
-      <p>Valid untuk booking pertama.</p>
-      <div class="promo-code">TEMUTRIP15</div>
-      <button type="button" onclick="copyPromo('TEMUTRIP15')">Copy</button>
+  <div class="voucher-grid">
+
+    <div class="voucher-card reveal">
+      <div class="voucher-image">
+        <img src="diskon.png" alt="Diskon TemuTrip">
+      </div>
+
+      <div class="voucher-desc">
+        <p>Dapatkan diskon 15% untuk booking trip pertama kamu.</p>
+      </div>
+
+      <div class="voucher-bottom">
+        <div>
+          <h3>15%</h3>
+          <span>Valid untuk semua destinasi</span>
+        </div>
+
+        <button type="button" onclick="copyPromo('TEMUTRIP15')">
+          Copy
+        </button>
+      </div>
+
+      <div class="voucher-code">
+        <i class="fa-regular fa-copy"></i>
+        TEMUTRIP15
+      </div>
     </div>
 
-    <div class="promo-card reveal">
-      <h3>Gratis Travel Kit</h3>
-      <p>Baju trip, tas travel dan stiker.</p>
-      <div class="promo-code">FREEKIT</div>
-      <button type="button" onclick="copyPromo('FREEKIT')">Copy</button>
+    <div class="voucher-card reveal">
+      <div class="voucher-image">
+        <img src="kit.png" alt="Travel Kit TemuTrip">
+      </div>
+
+      <div class="voucher-desc">
+        <p>Gratis travel kit berupa baju trip, tas travel, dan sticker.</p>
+      </div>
+
+      <div class="voucher-bottom">
+        <div>
+          <h3>FREE</h3>
+          <span>Travel kit untuk traveler baru</span>
+        </div>
+
+        <button type="button" onclick="copyPromo('FREEKIT')">
+          Copy
+        </button>
+      </div>
+
+      <div class="voucher-code">
+        <i class="fa-regular fa-copy"></i>
+        FREEKIT
+      </div>
     </div>
 
-    <div class="promo-card reveal">
-      <h3>Cashback Rp300K</h3>
-      <p>Khusus paket Raja Ampat.</p>
-      <div class="promo-code">CASHBACK300</div>
-      <button type="button" onclick="copyPromo('CASHBACK300')">Copy</button>
+    <div class="voucher-card reveal">
+      <div class="voucher-image">
+        <img src="cashback.png" alt="Cashback TemuTrip">
+      </div>
+
+      <div class="voucher-desc">
+        <p>Cashback Rp300.000 khusus paket premium Raja Ampat.</p>
+      </div>
+
+      <div class="voucher-bottom">
+        <div>
+          <h3>300K</h3>
+          <span>Cashback untuk trip premium</span>
+        </div>
+
+        <button type="button" onclick="copyPromo('CASHBACK300')">
+          Copy
+        </button>
+      </div>
+
+      <div class="voucher-code">
+        <i class="fa-regular fa-copy"></i>
+        CASHBACK300
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -331,9 +390,68 @@
   </form>
 </section>
 
-<footer>
-  <h2>TemuTrip</h2>
-  <p>Open Trip Indonesia dengan pengalaman traveling terbaik.</p>
+<footer class="footer-temutrip">
+
+  <div class="footer-overlay"></div>
+
+  <div class="footer-content">
+
+    <div class="footer-column">
+      <h3>TemuTrip</h3>
+
+      <p>
+        Open trip premium Indonesia dengan pengalaman
+        traveling modern, aman, dan nyaman.
+      </p>
+
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Navigation</h4>
+
+      <a href="#home">Home</a>
+      <a href="#destinasi">Destinations</a>
+      <a href="#promo">Promo</a>
+      <a href="#review">Review</a>
+      <a href="#booking">Booking</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Popular Trips</h4>
+
+      <a href="#">Banda Neira</a>
+      <a href="#">Labuan Bajo</a>
+      <a href="#">Raja Ampat</a>
+      <a href="#">Belitung</a>
+      <a href="#">Sumba</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact</h4>
+
+      <p>Bandung, Indonesia</p>
+      <p>+62 895-1828-8595</p>
+      <p>temutrip@gmail.com</p>
+
+      <div class="footer-payment">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-paypal"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © 2026 TemuTrip. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <a href="https://wa.me/6289518288595" target="_blank" class="whatsapp-float">
