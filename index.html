@@ -133,7 +133,7 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>DISKON 15%</h3>
+          <h3>15%</h3>
           <span>Valid untuk semua destinasi</span>
         </div>
 
@@ -159,7 +159,7 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>FREE TRAVEL KIT</h3>
+          <h3>FREE</h3>
           <span>Travel kit untuk traveler baru</span>
         </div>
 
@@ -185,24 +185,25 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>CASHBACK 300K</h3>
+          <h3>300K</h3>
           <span>Cashback untuk trip premium</span>
         </div>
 
-        <button type="button" onclick="copyPromo('TEMUTRIP300')">
+        <button type="button" onclick="copyPromo('CASHBACK300')">
           Copy
         </button>
       </div>
 
       <div class="voucher-code">
         <i class="fa-regular fa-copy"></i>
-        TEMUTRIP300
+        CASHBACK300
       </div>
     </div>
 
       </div>
     </div>
     <button class="carousel-btn right" type="button" onclick="moveVoucher(1)" aria-label="Voucher berikutnya">&gt;</button>
+    <div class="slider-dots" id="voucherDots"></div>
   </div>
 </section>
 
@@ -366,6 +367,7 @@
       </div>
     </div>
     <button class="carousel-btn right" type="button" onclick="moveReview(1)" aria-label="Review berikutnya">&gt;</button>
+    <div class="slider-dots" id="reviewDots"></div>
   </div>
 </section>
 
@@ -384,9 +386,9 @@
       <option>Pilih Destinasi</option>
     </select>
 
-    <div class="date-input-wrapper">
+    <div class="form-field date-field">
       <i class="fa-regular fa-calendar-days"></i>
-      <input type="text" id="tripDateInput" placeholder="Tanggal Berangkat" onfocus="this.type='date'; if(this.showPicker){this.showPicker();}" onblur="if(!this.value){this.type='text';}" onchange="updatePaymentUI()">
+      <input type="date" id="tripDateInput" onchange="updatePaymentUI()">
     </div>
     <input type="number" id="guestInput" placeholder="Jumlah Peserta" min="1" value="1" oninput="updatePaymentUI()">
 
@@ -940,6 +942,7 @@ let activeReviewIndex = 0;
 function updateReviewSlider(){
   if(!reviewGridSlider || reviewCardsSlider.length === 0) return;
   reviewGridSlider.style.transform = `translateX(-${activeReviewIndex * 100}%)`;
+  updateDots("reviewDots", reviewCardsSlider.length, activeReviewIndex);
 }
 
 function moveReview(direction){
@@ -954,6 +957,7 @@ let activeVoucherIndex = 0;
 function updateVoucherSlider(){
   if(!voucherGridSlider || voucherCardsSlider.length === 0) return;
   voucherGridSlider.style.transform = `translateX(-${activeVoucherIndex * 100}%)`;
+  updateDots("voucherDots", voucherCardsSlider.length, activeVoucherIndex);
 }
 
 function moveVoucher(direction){
@@ -966,6 +970,32 @@ setInterval(() => moveVoucher(1), 4200);
 window.addEventListener("resize", () => { updateReviewSlider(); updateVoucherSlider(); });
 updateReviewSlider();
 updateVoucherSlider();
+
+function updateDots(containerId, total, activeIndex){
+  const dotsContainer = document.getElementById(containerId);
+  if(!dotsContainer) return;
+
+  dotsContainer.innerHTML = "";
+
+  for(let i = 0; i < total; i++){
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = i === activeIndex ? "active" : "";
+    dot.setAttribute("aria-label", "Slide " + (i + 1));
+
+    dot.onclick = function(){
+      if(containerId === "voucherDots"){
+        activeVoucherIndex = i;
+        updateVoucherSlider();
+      }else{
+        activeReviewIndex = i;
+        updateReviewSlider();
+      }
+    };
+
+    dotsContainer.appendChild(dot);
+  }
+}
 
 function toggleFaq(button){
   const item = button.closest(".faq-item");

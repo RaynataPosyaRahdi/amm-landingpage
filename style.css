@@ -380,7 +380,7 @@ section{
 .promo-section,
 .review-section,
 .payment-section{
-  background:rgb(250, 249, 249);
+  background:white;
 }
 
 .promo-grid,
@@ -2471,119 +2471,490 @@ body.dark-mode .carousel-btn:hover{ background:#1ba0e2; }
 }
 
 
+
 /* ======================================================
-   REQUEST FIX: logo navbar + date booking icon + hero spacing
+   FINAL FIX TEMUTRIP - HP RAPIH, LOGO NORMAL, SLIDER DOTS
+   Paste ini paling bawah atau pakai file CSS final ini saja.
    ====================================================== */
 
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+img{
+  max-width:100%;
+}
+
+/* Navbar logo tidak boleh membesar/menumpuk */
+.navbar{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:16px !important;
+}
+
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  line-height:1;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  line-height:1 !important;
+  font-size:28px !important;
+  font-weight:800 !important;
+  color:var(--blue) !important;
+  white-space:nowrap !important;
+  flex:0 1 auto !important;
+  min-width:0 !important;
 }
 
 .logo img{
-  width:42px;
-  height:42px;
-  object-fit:contain;
-  flex:0 0 auto;
-  display:block;
+  width:46px !important;
+  height:46px !important;
+  max-width:46px !important;
+  max-height:46px !important;
+  min-width:46px !important;
+  object-fit:contain !important;
+  display:block !important;
+  flex:0 0 46px !important;
 }
 
 .logo span{
-  display:block;
+  display:block !important;
 }
 
+.nav-actions{
+  flex:0 0 auto !important;
+}
+
+/* Hero spacing */
 .hero-desc{
-  margin-bottom:52px;
+  margin-bottom:44px !important;
 }
 
-.date-input-wrapper{
-  position:relative;
-  width:100%;
-  min-width:0;
+.hero-buttons{
+  margin-bottom:44px !important;
 }
 
-.date-input-wrapper i{
-  position:absolute;
-  left:18px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:2;
-  color:#0f172a;
-  font-size:17px;
-  pointer-events:none;
+/* Carousel voucher & review: tampil 1 item, tidak zoom */
+.carousel-area{
+  position:relative !important;
+  width:100% !important;
+  max-width:860px !important;
+  margin:0 auto !important;
+  padding:0 58px 34px !important;
+  overflow:visible !important;
 }
 
-.date-input-wrapper input{
-  width:100%;
-  padding-left:52px !important;
+.voucher-window,
+.review-window{
+  width:100% !important;
+  overflow:hidden !important;
+  border-radius:26px !important;
 }
 
-.date-input-wrapper input::-webkit-calendar-picker-indicator{
-  opacity:1;
-  cursor:pointer;
+.voucher-grid,
+.review-grid{
+  display:flex !important;
+  grid-template-columns:none !important;
+  gap:0 !important;
+  width:100% !important;
+  transition:transform .55s ease !important;
+  will-change:transform !important;
 }
 
-body.dark-mode .date-input-wrapper i{
-  color:#f8fafc;
+.voucher-grid .voucher-card,
+.review-grid .review-card{
+  flex:0 0 100% !important;
+  min-width:100% !important;
+  max-width:100% !important;
+  transform:none !important;
+  opacity:1 !important;
+  margin:0 !important;
 }
 
+/* Tombol panah */
+.carousel-btn{
+  position:absolute !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  width:44px !important;
+  height:44px !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:#ffffff !important;
+  color:#0f172a !important;
+  font-size:22px !important;
+  font-weight:800 !important;
+  box-shadow:0 12px 28px rgba(15,23,42,.16) !important;
+  z-index:10 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.carousel-btn.left{
+  left:0 !important;
+}
+
+.carousel-btn.right{
+  right:0 !important;
+}
+
+.carousel-btn:hover{
+  background:var(--blue) !important;
+  color:#fff !important;
+}
+
+/* Dots */
+.slider-dots{
+  position:absolute !important;
+  left:50% !important;
+  bottom:0 !important;
+  transform:translateX(-50%) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  z-index:11 !important;
+}
+
+.slider-dots button{
+  width:10px !important;
+  height:10px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:#cbd5e1 !important;
+  transition:.25s ease !important;
+}
+
+.slider-dots button.active{
+  width:24px !important;
+  border-radius:999px !important;
+  background:var(--blue) !important;
+}
+
+/* Voucher image jangan ngezoom */
+.voucher-card{
+  background:#fff !important;
+  overflow:hidden !important;
+}
+
+.voucher-image{
+  height:180px !important;
+  overflow:hidden !important;
+  background:#dff5ff !important;
+}
+
+.voucher-image img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  display:block !important;
+  transform:none !important;
+}
+
+/* Form booking + date icon */
+.booking-form{
+  align-items:stretch !important;
+}
+
+.form-field{
+  position:relative !important;
+  width:100% !important;
+}
+
+.form-field i{
+  position:absolute !important;
+  left:18px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  color:#0f172a !important;
+  font-size:16px !important;
+  z-index:2 !important;
+  pointer-events:none !important;
+}
+
+.form-field input{
+  width:100% !important;
+  padding-left:48px !important;
+}
+
+.date-field{
+  display:block !important;
+}
+
+.date-field input[type="date"]{
+  appearance:auto !important;
+  -webkit-appearance:auto !important;
+  color:#0f172a !important;
+  background:#fff !important;
+}
+
+.date-field input[type="date"]::-webkit-calendar-picker-indicator{
+  opacity:1 !important;
+  display:block !important;
+  cursor:pointer !important;
+}
+
+/* Dark mode fix */
+body.dark-mode .carousel-btn{
+  background:#0f172a !important;
+  color:#fff !important;
+}
+
+body.dark-mode .slider-dots button{
+  background:#475569 !important;
+}
+
+body.dark-mode .slider-dots button.active{
+  background:#38bdf8 !important;
+}
+
+body.dark-mode .form-field i{
+  color:#f8fafc !important;
+}
+
+body.dark-mode .date-field input[type="date"]{
+  color:#f8fafc !important;
+  background:#0f172a !important;
+}
+
+/* Tablet */
 @media(max-width:900px){
+  .navbar{
+    width:92% !important;
+    left:4% !important;
+    top:14px !important;
+    padding:12px 16px !important;
+    border-radius:28px !important;
+    min-height:72px !important;
+  }
+
   .logo{
-    gap:8px;
+    font-size:25px !important;
+    gap:9px !important;
   }
 
   .logo img{
-    width:38px;
-    height:38px;
+    width:42px !important;
+    height:42px !important;
+    max-width:42px !important;
+    max-height:42px !important;
+    min-width:42px !important;
+    flex-basis:42px !important;
+  }
+
+  .hero{
+    padding-top:120px !important;
   }
 
   .hero-desc{
-    margin-bottom:38px;
+    margin-bottom:36px !important;
   }
 
   .hero-buttons{
-    margin-top:0;
+    margin-bottom:36px !important;
+  }
+
+  .carousel-area{
+    max-width:720px !important;
+    padding:0 48px 32px !important;
   }
 }
 
-@media(max-width:480px){
+/* HP */
+@media(max-width:640px){
   .navbar{
-    align-items:center;
+    width:92% !important;
+    left:4% !important;
+    top:14px !important;
+    padding:10px 12px !important;
+    border-radius:26px !important;
+    min-height:64px !important;
   }
 
   .logo{
-    font-size:22px;
-    gap:7px;
+    font-size:22px !important;
+    gap:8px !important;
   }
 
   .logo img{
-    width:34px;
-    height:34px;
+    width:34px !important;
+    height:34px !important;
+    max-width:34px !important;
+    max-height:34px !important;
+    min-width:34px !important;
+    flex-basis:34px !important;
+  }
+
+  .dark-toggle,
+  .hamburger{
+    width:40px !important;
+    height:40px !important;
+    flex:0 0 40px !important;
+  }
+
+  .nav-actions{
+    gap:8px !important;
+  }
+
+  .hero{
+    min-height:auto !important;
+    padding:112px 6% 60px !important;
+    align-items:flex-start !important;
+  }
+
+  .tag{
+    font-size:10.5px !important;
+    letter-spacing:3px !important;
+    margin-bottom:14px !important;
+  }
+
+  .hero h1{
+    font-size:34px !important;
+    line-height:1.13 !important;
+    margin-bottom:18px !important;
   }
 
   .hero-desc{
-    margin-bottom:36px;
+    font-size:14px !important;
+    line-height:1.72 !important;
+    margin-bottom:42px !important;
   }
 
-  .date-input-wrapper i{
-    left:16px;
-    font-size:15px;
+  .hero-buttons{
+    flex-direction:column !important;
+    gap:14px !important;
+    margin-bottom:42px !important;
   }
 
-  .date-input-wrapper input{
-    padding-left:46px !important;
+  .primary-btn,
+  .secondary-btn{
+    width:100% !important;
+    padding:15px 16px !important;
+    font-size:14px !important;
+    text-align:center !important;
+  }
+
+  .review-slider{
+    width:100% !important;
+    height:120px !important;
+    overflow:hidden !important;
+  }
+
+  .review-slide{
+    padding:14px !important;
+    gap:12px !important;
+    border-radius:22px !important;
+    overflow:hidden !important;
+  }
+
+  .review-slide img{
+    width:52px !important;
+    height:52px !important;
+    flex:0 0 52px !important;
+  }
+
+  .review-slide p{
+    font-size:13px !important;
+    line-height:1.45 !important;
+    display:-webkit-box !important;
+    -webkit-line-clamp:2 !important;
+    -webkit-box-orient:vertical !important;
+    overflow:hidden !important;
+  }
+
+  .review-slide span{
+    font-size:12px !important;
+  }
+
+  .carousel-area{
+    padding:0 34px 30px !important;
+  }
+
+  .carousel-btn{
+    width:34px !important;
+    height:34px !important;
+    font-size:18px !important;
+  }
+
+  .carousel-btn.left{
+    left:-2px !important;
+  }
+
+  .carousel-btn.right{
+    right:-2px !important;
+  }
+
+  .voucher-window,
+  .review-window{
+    border-radius:22px !important;
+  }
+
+  .voucher-image{
+    height:145px !important;
+  }
+
+  .voucher-desc{
+    padding:18px !important;
+  }
+
+  .voucher-bottom{
+    padding:18px !important;
+  }
+
+  .voucher-code{
+    margin:0 18px 18px !important;
+  }
+
+  .review-grid .review-card{
+    padding:24px 18px !important;
+    min-height:255px !important;
+    text-align:center !important;
+  }
+
+  .booking-form{
+    padding:16px !important;
+    gap:12px !important;
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea{
+    min-height:54px !important;
+    font-size:14px !important;
+    border-radius:16px !important;
   }
 }
 
-@media(max-width:360px){
+/* HP kecil */
+@media(max-width:380px){
   .logo{
-    font-size:20px;
+    font-size:20px !important;
   }
 
   .logo img{
-    width:30px;
-    height:30px;
+    width:30px !important;
+    height:30px !important;
+    max-width:30px !important;
+    max-height:30px !important;
+    min-width:30px !important;
+    flex-basis:30px !important;
+  }
+
+  .dark-toggle,
+  .hamburger{
+    width:36px !important;
+    height:36px !important;
+    flex-basis:36px !important;
+  }
+
+  .hero h1{
+    font-size:30px !important;
   }
 }
