@@ -13,7 +13,7 @@
 <body>
 
 <header class="navbar">
-  <div class="logo">TemuTrip</div>
+  <div class="logo"><img src="logo.png" alt="Logo TemuTrip"><span>TemuTrip</span></div>
 
   <nav>
     <a href="#home">Home</a>
@@ -133,7 +133,7 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>15%</h3>
+          <h3>DISKON 15%</h3>
           <span>Valid untuk semua destinasi</span>
         </div>
 
@@ -159,7 +159,7 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>FREE</h3>
+          <h3>FREE TRAVEL KIT</h3>
           <span>Travel kit untuk traveler baru</span>
         </div>
 
@@ -185,18 +185,18 @@
 
       <div class="voucher-bottom">
         <div>
-          <h3>300K</h3>
+          <h3>CASHBACK 300K</h3>
           <span>Cashback untuk trip premium</span>
         </div>
 
-        <button type="button" onclick="copyPromo('CASHBACK300')">
+        <button type="button" onclick="copyPromo('TEMUTRIP300')">
           Copy
         </button>
       </div>
 
       <div class="voucher-code">
         <i class="fa-regular fa-copy"></i>
-        CASHBACK300
+        TEMUTRIP300
       </div>
     </div>
 
@@ -384,7 +384,10 @@
       <option>Pilih Destinasi</option>
     </select>
 
-    <input type="date" id="tripDateInput" onchange="updatePaymentUI()">
+    <div class="date-input-wrapper">
+      <i class="fa-regular fa-calendar-days"></i>
+      <input type="text" id="tripDateInput" placeholder="Tanggal Berangkat" onfocus="this.type='date'; if(this.showPicker){this.showPicker();}" onblur="if(!this.value){this.type='text';}" onchange="updatePaymentUI()">
+    </div>
     <input type="number" id="guestInput" placeholder="Jumlah Peserta" min="1" value="1" oninput="updatePaymentUI()">
 
     <select id="paymentSelect" onchange="syncPaymentFromSelect()">
